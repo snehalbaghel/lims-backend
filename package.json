@@ -1,0 +1,19 @@
+{
+  "name": "lims-backend",
+  "version": "1.0.0",
+  "description": "Inventory Managment System for Life Sciences Lab (CHRIST)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/snehalbaghel/lims-backend.git"
+  },
+  "author": "Snehal Baghel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snehalbaghel/lims-backend/issues"
+  },
+  "homepage": "https://github.com/snehalbaghel/lims-backend#readme"
+}
