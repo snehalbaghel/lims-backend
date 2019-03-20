@@ -71,7 +71,7 @@ const itemSchema = new Schema({
     // Confirm this 
     type: {
         type: Schema.Types.String, 
-        enum: ['Bio-Chemical', 'Fine-Chemical', 'Solvent', 'Acid', 'Base']},
+        enum: ['Biochemical', 'Fine Chemical', 'Solvent', 'Acid', 'Base']},
     mol_weight: {type: Schema.Types.Number},
     mol_formula: {type: Schema.Types.String},
     purity: {type: Schema.Types.Number},

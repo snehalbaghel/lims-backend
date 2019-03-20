@@ -2,6 +2,7 @@ import express from "express";
 import {Request, Response} from "express";
 import { default as User, UserModel} from "../models/user";
 import * as userController from "../controllers/user";
+import * as itemController from "../controllers/item";
 
 export class Routes {
     public routes(app: express.Application): void {
@@ -32,7 +33,9 @@ export class Routes {
             });
 
         app.route('/login').post(userController.postLogin);
-
+        app.route('/user').get(userController.getUser);
+        app.route('/logout').get(userController.getLogout);
+        app.route('/addItem').post(itemController.postItem);
 
     }
 }

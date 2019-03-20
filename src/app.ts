@@ -8,6 +8,7 @@ import MongoStoreFactory from "connect-mongo";
 // import * as passportConfig from "./config/passport";
 import "./config/passport";
 import passport from "passport";
+import cors from "cors";
 
 class App {
     public app: express.Application;
@@ -56,6 +57,10 @@ class App {
     }
 
     private config(): void {
+        this.app.use(cors({
+            origin:['http://localhost:4200','http://127.0.0.1:4200'],
+            credentials:true
+          }));;
         // support application/json type post data
         this.app.use(bodyParser.json());
 
