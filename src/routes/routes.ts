@@ -22,7 +22,7 @@ export class Routes {
                 newUser.username = req.body.username;
                 newUser.password = req.body.password;
                 newUser.accessLevel = req.body.accessLevel;
-                console.log("sup")
+                // console.log("sup")
                 try{
                     let user = await newUser.save();
                     console.log(user);

@@ -104,6 +104,7 @@ const itemSchema = new Schema({
     hazard_pictograms: {type: [Schema.Types.Number]},
     msds_url: {type: Schema.Types.String},
     other_instructions:  {type: Schema.Types.String},
+    unit: {type: Schema.Types.String},
     quantity: {
         bsc1: {
             value: {type: Schema.Types.Number},

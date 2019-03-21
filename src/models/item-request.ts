@@ -1,6 +1,6 @@
 import mongoose, { Model } from "mongoose";
 
-export type RequestModel = mongoose.Document & {
+export type ItemRequestModel = mongoose.Document & {
     _id: mongoose.Types.ObjectId,
     indenter_id: mongoose.Types.ObjectId,
     item_id: mongoose.Types.ObjectId,
@@ -20,7 +20,7 @@ export type RequestModel = mongoose.Document & {
 
 const Schema = mongoose.Schema;
 
-export const requestSchema = new Schema({
+export const itemRequestSchema = new Schema({
 
     //_id: {type: Schema.Types.ObjectId},
     indenter_id: {type: Schema.Types.ObjectId, ref: 'User'},
@@ -40,6 +40,6 @@ export const requestSchema = new Schema({
     approved_by: { type: Schema.Types.ObjectId , ref: 'User'}
 });
 
-const Request: Model<RequestModel> = mongoose.model<RequestModel>("Request", requestSchema);
+const ItemRequest: Model<ItemRequestModel> = mongoose.model<ItemRequestModel>("Request", itemRequestSchema);
 
-export default Request;
+export default ItemRequest;
