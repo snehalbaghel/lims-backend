@@ -22,18 +22,18 @@ export let postLogin = (req: Request,res: Response, next: NextFunction) => {
 
 export let getUser = (req: Request, res: Response, next: NextFunction) => {
     console.info("Inside GET /user");
-    isValidUser(req, res, next);
+    //isValidUser(req, res, next);
     return res.status(200).json(req.user);
 }
 
 export let getLogout = (req: Request, res: Response, next: NextFunction) => {
     req.logout();
-    isValidUser(req, res, next);
+   // isValidUser(req, res, next);
     return res.status(200).json({message: 'Logout Successful'});
 }
 
 
-function isValidUser(req: Request, res: Response, next: NextFunction) {
+export function isValidUser(req: Request, res: Response, next: NextFunction) {
     if(req.isAuthenticated())
         next();
     else return res.status(401).json({message: 'Unauthorized Request'})

@@ -3,6 +3,7 @@ import {Request, Response} from "express";
 import { default as User, UserModel} from "../models/user";
 import * as userController from "../controllers/user";
 import * as itemController from "../controllers/item";
+import * as requestController from "../controllers/request";
 
 export class Routes {
     public routes(app: express.Application): void {
@@ -32,9 +33,13 @@ export class Routes {
                 }
             });
 
-        app.route('/login').post(userController.postLogin);
-        app.route('/user').get(userController.getUser);
-        app.route('/logout').get(userController.getLogout);
+        app.post('/login',userController.postLogin);
+        app.get('/user',userController.isValidUser ,userController.getUser);
+        app.get('/logout',userController.isValidUser, userController.getLogout);
+        app.get('/items', userController.isValidUser, itemController.getItems);
+        app.post('/request', userController.isValidUser, requestController.postRequest);
+        app.get('/requests', userController.isValidUser, requestController.getRequests);
+        app.post('/a3pprove', userController.isValidUser, requestController.approveRequest);
         app.route('/addItem').post(itemController.postItem);
 
     }

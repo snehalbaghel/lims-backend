@@ -8,9 +8,10 @@ export type ItemRequestModel = mongoose.Document & {
         value: Number,
         unit: string,
     },
-    indented_use: string,
+    intended_use: string,
     subject_code: string,
     date: Date,
+    approved: boolean,
     approved_quantity: {
         value: Number,
         unit: string,
@@ -23,16 +24,17 @@ const Schema = mongoose.Schema;
 export const itemRequestSchema = new Schema({
 
     //_id: {type: Schema.Types.ObjectId},
-    indenter_id: {type: Schema.Types.ObjectId, ref: 'User'},
+    intender_id: {type: Schema.Types.ObjectId, ref: 'User'},
     item_id: {type: Schema.Types.ObjectId, ref: 'Item'},
     quantity: {
         value: {type: Schema.Types.Number},
         unit: {type: Schema.Types.String}
     },
-    indented_use: {type: Schema.Types.String},
+    intended_use: {type: Schema.Types.String},
     // replace with enum
     subject_code: {type: Schema.Types.String},
-    date: {type: Schema.Types.Date},
+    date: {type: Schema.Types.Date, default: Date.now()},
+    approved: {type: Schema.Types.Boolean, default: false},
     approved_quantity: {
         value: {type: Schema.Types.Number},
         unit: {type: Schema.Types.String}
