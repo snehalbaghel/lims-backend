@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
  * Password hash middleware.
  */
 userSchema.pre("save", function save(next: mongoose.HookNextFunction) {
-    const user: UserModel = this;
+    const user: any = this; // Don't do dis
     bcrypt.genSalt(10, (err, salt) => {
       if (err) { return next(err); }
       bcrypt.hash(user.password, salt, null, (err: mongoose.Error, hash) => {
