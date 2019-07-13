@@ -37,6 +37,7 @@ userSchema.pre("save", function save(next: mongoose.HookNextFunction) {
         next();
       });
     });
+    next();
   });
 
 const comparePassword: comparePasswordFunction = function (candidatePassword, cb) {

@@ -25,9 +25,10 @@ export class Routes {
                 newUser.accessLevel = req.body.accessLevel;
                 // console.log("sup")
                 try{
+                    console.log(newUser);
                     let user = await newUser.save();
                     console.log(user);
-                    res.json({message: "ok"});
+                    res.json({message: "Registered"});
                 } catch(err) {
                     console.error(err);
                 }
@@ -39,7 +40,7 @@ export class Routes {
         app.get('/items', userController.isValidUser, itemController.getItems);
         app.post('/request', userController.isValidUser, requestController.postRequest);
         app.get('/requests', userController.isValidUser, requestController.getRequests);
-        app.post('/a3pprove', userController.isValidUser, requestController.approveRequest);
+        app.post('/approve', userController.isValidUser, requestController.approveRequest);
         app.route('/addItem').post(itemController.postItem);
 
     }
